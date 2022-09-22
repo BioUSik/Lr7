@@ -14,8 +14,11 @@
     <form method="post">
         {%csrf_token%}
         {{form.as_p}}
-        <button type="submit" class="btn btn-success ml-2" type="submit">Login</button>
+        <button class="btn btn-success ml-2" type="submit">Login</button>
+        <a href="{%url 'password_reset'%}">Reset password?</a>
     </form>
+
     {%endblock%}
+
 </body>
 </html>

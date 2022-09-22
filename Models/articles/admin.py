@@ -1,4 +1,13 @@
 from django.contrib import admin
-from .models import Article
+from . import models
 
-admin.site.register(Article)
+class CommentInLine(admin.TabularInline):
+    model = models.Comment
+
+class ArticleAdmin(admin.ModelAdmin):
+    inlines = [
+        CommentInLine,
+    ]
+
+admin.site.register(models.Article, ArticleAdmin)
+admin.site.register(models.Comment)
